@@ -1,0 +1,40 @@
+CREATE DATABASE Lista_pracownikow;
+USE Lista_pracownikow;
+
+CREATE TABLE Pracownicy (
+    ID INT PRIMARY KEY,        
+    Imie VARCHAR(10) NOT NULL,             
+    Nazwisko VARCHAR(20) NOT NULL,            
+    Stanowisko VARCHAR(30) NOT NULL,         
+    Dzial VARCHAR(100) NOT NULL)
+    ;
+    
+INSERT INTO Pracownicy (ID, Imie, Nazwisko, Stanowisko, Dzial)
+VALUES 
+(1,'Maria', 'Kowalska', 'Ksiegowa', 'Finanse'),
+(2,'Robert', 'Nowak', 'Dyrektor IT', 'IT'),
+(3,'Zaneta', 'Szymanska', 'Telemarketer ', 'Marketing');
+
+SELECT * FROM Pracownicy;
+
+ALTER TABLE Pracownicy
+ADD Data_zatrudnienia DATE;
+
+INSERT INTO Pracownicy (ID, Imie, Nazwisko, Stanowisko, Dzial, Data_zatrudnienia)
+VALUES (4,'Mateusz', 'Zieliński', 'Obsluga klienta', 'Marketing', '2023-10-01');
+
+SELECT * FROM Pracownicy;
+
+UPDATE Pracownicy
+SET Data_zatrudnienia = '2022-06-01'
+WHERE ID = 1;
+
+UPDATE Pracownicy
+SET Data_zatrudnienia = '2021-03-15'
+WHERE ID =2 ;
+
+UPDATE Pracownicy
+SET Data_zatrudnienia = '2020-11-10'
+WHERE ID =3;
+
+SELECT * FROM Pracownicy;
