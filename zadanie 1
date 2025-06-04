@@ -1,0 +1,53 @@
+CREATE DATABASE School_coding
+USE School_coding;
+
+CREATE TABLE biblioteczka (
+ID INT,
+Tytul TEXT,
+Data_zakupu DATE);
+
+INSERT INTO biblioteczka (ID, Tytul, Data_zakupu)
+VALUES (1, 'Glukozowa_rewolucja','2025-01-23');
+
+SELECT * FROM biblioteczka;
+
+INSERT INTO biblioteczka (ID, Tytul, Data_zakupu)
+VALUES (2, 'Psi_rozum','2024-03-29'),
+(3, 'Border_collie','2024-05-25');
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE biblioteczka
+SET Tytul = 'Psie_emocje'
+WHERE ID = 1;
+
+SET SQL_SAFE_UPDATES = 1;
+
+ALTER TABLE biblioteczka
+ADD PRIMARY KEY (ID);
+
+SELECT * FROM biblioteczka;
+
+INSERT INTO biblioteczka ( ID, Tytul, Data_zakupu)
+VALUES (4, 'Ekonomia','2021-05-26'),
+(5, 'Relacja','2024-12-12');
+
+UPDATE biblioteczka
+SET Tytul = 'Psie_relacje'
+WHERE ID = 4;
+
+ALTER TABLE biblioteczka
+ADD Autor TEXT;
+
+UPDATE biblioteczka SET Autor = 'Anna Kowalska' WHERE ID = 1;
+UPDATE biblioteczka SET Autor = 'Natalia Kowalska' WHERE ID = 2;
+UPDATE biblioteczka SET Autor = 'Robert Zak' WHERE ID = 3;
+
+SELECT * FROM biblioteczka;
+UPDATE biblioteczka SET Autor = 'Marta Jakas' WHERE ID = 4;
+UPDATE biblioteczka SET Autor = 'Michal Szpar' WHERE ID = 5;
+
+DELETE FROM biblioteczka
+WHERE ID IN (2,3);
+
+SELECT * FROM biblioteczka;
+SELECT Autor FROM biblioteczka;
